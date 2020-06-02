@@ -1,0 +1,44 @@
+
+/* mobile first */
+.group {
+display: flex;
+flex-direction: row;
+
+}
+.city-group{
+  flex-direction: column;
+}
+
+.category-group{
+    flex-direction: column-reverse;
+}
+
+.result-list-group{
+  display: flex;
+flex-direction: column;
+}
+
+
+
+/* desktop 450px ~ 800px */
+@media only screen and (min-width: 450px) {
+    /* category list two column */
+    .category-group{
+        flex-direction: row;
+      }
+  }
+
+  /* desktop >800px */
+@media only screen and (min-width: 800px) {
+   /* city and state in same line */
+  .city-group{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .result-list-group{
+  
+  flex-direction: row;
+  }
+
+}
