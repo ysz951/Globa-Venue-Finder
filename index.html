@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Global Online Venue Finder</title>
+    <title>Global Venue Finder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" href="index.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
     <!-- Title -->
-    <h1>Global Online Venue Finder</h1>
+    <h1>Global Venue Finder</h1>
     <main>
         
         <!-- Search Section -->
@@ -99,7 +99,7 @@
             </form>
         </div>
         <!-- error message -->
-        <p id="js-error-message" class="error-message hidden"></p>
+        <h3 id="js-error-message" class="error-message hidden"></h3>
         <!-- results section -->
         <div class="results-container">
             <section id="results" class="hidden">
@@ -111,18 +111,19 @@
         </div>
         
     </main>
+    <!-- street view light box -->
     <div id="myModal" class="modal hidden">
         <span class="close cursor">&times;</span>
         <div class="modal-content">
-      
           <div class="mySlides" id="street">
           </div>
           <div class="mySlides " id="loc">
         </div>
       </div>
     </div>
+    <!-- top button -->
     <div class="top-button">
-    <button id="myBtn" class="cusor">TOP</button>
+        <button id="myBtn" class="cusor">TOP</button>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

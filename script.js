@@ -44,7 +44,6 @@ function getFour(city, state, radius, query, categoryId, limit) {
   // build the complete url
   const url = foursquareVenueURL + '?' + queryString;
  
-
   // clear error message
   $('#js-error-message').text('');
 
@@ -122,7 +121,7 @@ function getImage(venueId, listId){
   const queryString = formatQueryParams(params)
   // build the complete url
   const url = foursquarePhotonURL + venueId + '/photos' + '?' + queryString;
-  // console.log(url);
+
   fetch(url)
     .then(response => {
       if (response.ok) {
@@ -139,18 +138,6 @@ function getImage(venueId, listId){
 }
 
 // fetch the image from Google Static Street View
-function googleImage(listId){
-  const imageSize = '400x300';
-  const params = {
-    size: imageSize,
-    location: `${STORE[listId].lat},${STORE[listId].lng}`,
-    key: key,
-  };
-  const  queryString = formatQueryParams(params);
-  const  url = googleURL + '?' + queryString;
-  $(`#num-${listId}`).append(`<img src='${url}' alt="error">`)
-}
-
 function imageRequest(photoResponse, listId){
   
   let photoItem = photoResponse.items[0]
@@ -167,6 +154,20 @@ function imageRequest(photoResponse, listId){
   
 }
 
+function googleImage(listId){
+  const imageSize = '400x300';
+  const params = {
+    size: imageSize,
+    location: `${STORE[listId].lat},${STORE[listId].lng}`,
+    key: key,
+  };
+  const  queryString = formatQueryParams(params);
+  const  url = googleURL + '?' + queryString;
+  $(`#num-${listId}`).append(`<img src='${url}' alt="error">`)
+}
+
+// Street View
+
 function closeImage(){
   $('.close').on('click',function(){
     $('#myModal').addClass('hidden');
@@ -177,32 +178,13 @@ function streetViewClick(){
   $('ul').on('click','.show-map',function(event){
     
     event.preventDefault();
-    let pureId = this.id.split('-')[1];
-    let mapId = 'map' + '-' + pureId;
-    let streetId = 'street' + '-' + pureId;
-    let buttonId = 'button' + '-' + pureId;
-   
-    let lat = STORE[pureId].lat;
-  
-    let lng = STORE[pureId].lng;
-
-   
+    let listId = this.id.split('-')[1];
+    let lat = STORE[listId].lat;
+    let lng = STORE[listId].lng;
     $('#myModal').removeClass('hidden')
-   
-    
     if (!($('#myModal')[0].classList.contains('hidden'))){
-      // $(this).find('span').text('Close')
-      if (!($(`#${buttonId}`)[0].classList.contains('clicked'))){
-        
-        initialize(lat,lng)
-       
-      }
-      
+      initialize(lat,lng)
     }
-    // else{
-    //   $(this).find('span').text('Find More')
-    // }
-    $('#buttonId').addClass('clicked')
   })
 }
 
@@ -242,6 +224,8 @@ function getVenue(){
    radius = radius * 1609.344;
   //  hide error message
    $('.error-message').hide();
+   // hide street view
+   $('#myModal').addClass('hidden');
    getFour(city, state, radius, query, categoryId, limit);
   })
 }
@@ -297,7 +281,7 @@ function getChange(){
   nameChange();
 }
 
-
+// clear icon 
 function clearTextClick(){
   $('.clear-span').on('click',function(event){
     $(this).closest('div').find('input').val('');
@@ -325,9 +309,10 @@ function inputCheck(){
 }
 
 
-
-
-
+// When the user scrolls down 300px from the top of the document, show the button
+function showTop(){
+  window.onscroll = function(){scrollFunction()};
+}
 
 function scrollFunction() {
   
@@ -336,12 +321,6 @@ function scrollFunction() {
   } else {
     $("#myBtn").hide();
   }
-}
-
-
-  // When the user scrolls down 20px from the top of the document, show the button
-function showTop(){
-  window.onscroll = function(){scrollFunction()};
 }
 
 function goTop(){

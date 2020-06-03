@@ -20,7 +20,7 @@ flex-direction: column;
 
 
 
-/* desktop 450px ~ 800px */
+/* ------450 to 800px setting-------- */
 @media only screen and (min-width: 450px) {
     /* category list two column */
     .category-group{
@@ -28,7 +28,7 @@ flex-direction: column;
       }
   }
 
-  /* desktop >800px */
+/* ------larger than 800px setting-------- */
 @media only screen and (min-width: 800px) {
    /* city and state in same line */
   .city-group{
