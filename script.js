@@ -81,27 +81,20 @@ function displayResults(responseJson) {
     // store each result list id as a new object, the value includes latitude and longitude
     STORE[`${listId}`]= new Object();
     Object.assign(STORE[`${listId}`], {"lat": resultData[i].location.lat, "lng": resultData[i].location.lng});
-    if (i < resultData.length - 1 || resultData.length === 2){
-      if (i%2 === 0){
-        $('#results-list').append(`<div class="subgroup_${~~(i/2)+1} result-list-group"></div>`);
-      }
-      // append the result name, category (if exists) and address into the result list
-      $(`.subgroup_${~~(i/2)+1}`).append(
-        `<li id="num-${listId}"><h3>${resultData[i].name}</h3> 
-        ${resultData[i].categories.length ? `<p><strong>${resultData[i].categories[0].name}</strong></p>` : ''}
-        <p>Location: ${addressObject ? `${addressObject}` : 'no'}</p>
-        <button type="button" class="show-map" id="button-${listId}"><span>Find More</span></button><br>
-        </li>`
-      )}
-    else{
-      $(`#results-list`).append(
-        `<li id="num-${listId}" class="last-one"><h3>${resultData[i].name}</h3> 
-        ${resultData[i].categories.length ? `<p><strong>${resultData[i].categories[0].name}</strong></p>` : ''}
-        <p>Location: ${addressObject ? `${addressObject}` : 'no'}</p>
-        <button type="button" class="show-map" id="button-${listId}"><span>Find More</span></button><br>
-        </li>`
-      )
+    
+    if (i%2 === 0){
+      $('#results-list').append(`<div class="subgroup_${~~(i/2)+1} result-list-group"></div>`);
     }
+
+    // $(`#results-list`).append(
+      $(`.subgroup_${~~(i/2)+1}`).append(
+      `<li id="num-${listId}" class="last-one"><h3>${resultData[i].name}</h3> 
+      ${resultData[i].categories.length ? `<p><strong>${resultData[i].categories[0].name}</strong></p>` : ''}
+      <p>Location: ${addressObject ? `${addressObject}` : 'no'}</p>
+      <button type="button" class="show-map" id="button-${listId}"><span>Find More</span></button><br>
+      </li>`
+      )
+    
     // append the result image into the result list
     getImage(resultData[i].id, listId)
   };

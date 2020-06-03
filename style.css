@@ -40,9 +40,7 @@ display: none;
 .container {
   width: 100%;
   background-color: rgb(235, 235, 235);
- 
   border-radius: 10px;
-  /* font-size: 24px; */
 }
 
 form{
