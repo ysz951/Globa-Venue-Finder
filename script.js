@@ -81,7 +81,7 @@ function displayResults(responseJson) {
     // store each result list id as a new object, the value includes latitude and longitude
     STORE[`${listId}`]= new Object();
     Object.assign(STORE[`${listId}`], {"lat": resultData[i].location.lat, "lng": resultData[i].location.lng});
-    if (i < resultData.length - 1){
+    if (i < resultData.length - 1 || resultData.length === 2){
       if (i%2 === 0){
         $('#results-list').append(`<div class="subgroup_${~~(i/2)+1} result-list-group"></div>`);
       }
