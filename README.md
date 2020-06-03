@@ -7,7 +7,7 @@ An online venue search application. Users can search for the venue they are inte
 * List the venue with name, location and street view.
 
 ## Demo
-* Live Demo
+* [Live Demo](https://ysz951.github.io/Global-Venue-Finder/)
 
 ## Screenshoots
 ### Search Section:
@@ -21,9 +21,13 @@ Street View Control
 ![image](https://github.com/ysz951/Global-Venue-Finder/blob/master/images/street-view.jpg)
 
 ## Built With
-### HTML
-* Interactive Web
-### CSS
-* Resonsive Layout
-### JavaScript/jQuery
-* API Hack
+### Front-End
+* #### HTML
+  * Interactive Web
+* #### CSS
+  * Resonsive Layout
+* #### JavaScript/jQuery
+  * API Hack
+
+## Author
+* **Shengyang Zhou** --- Front-End Development/testing, styling
