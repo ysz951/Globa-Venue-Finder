@@ -18,7 +18,7 @@ let nameBox = false;
 
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
-    .map(key => ( params[key] ? `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}` : '') )
+    .map(key => ( params[key] ? `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}` : ''));
   return queryItems.join('&');
 }
 
@@ -40,7 +40,7 @@ function getFour(city, state, radius, query, categoryId, limit) {
     categoryId: categoryId
   };
  
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   // build the complete url
   const url = foursquareVenueURL + '?' + queryString;
  
@@ -66,42 +66,43 @@ function storeResponse(responseJson){
 }
 
 function displayResults(responseJson) {
+  
   // if there are previous results, remove them
   $('#results-list').empty();
   // if there is no result
-  let resultData = responseJson.response.venues;
+  const resultData = responseJson.response.venues;
   if (resultData.length === 0){
     $('#results-list').append(
       `<li><h3>No results found</h3></li>`);
   }
   
   for (let i = 0; i < resultData.length; i++){
-    let addressObject = resultData[i].location.formattedAddress.join('');
-    let listId = cuid(); 
+    const addressObject = resultData[i].location.formattedAddress.join(', ');
+    const listId = cuid(); 
     // store each result list id as a new object, the value includes latitude and longitude
     STORE[`${listId}`]= new Object();
     Object.assign(STORE[`${listId}`], {"lat": resultData[i].location.lat, "lng": resultData[i].location.lng});
     
     if (i%2 === 0){
-      $('#results-list').append(`<div class="subgroup_${~~(i/2)+1} result-list-group"></div>`);
+      $('#results-list').append(`<li class="subgroup_${~~(i/2)+1} result-list-group"></li>`);
     }
 
     // $(`#results-list`).append(
       $(`.subgroup_${~~(i/2)+1}`).append(
-      `<li id="num-${listId}" class="last-one"><h3>${resultData[i].name}</h3> 
+      `<div id="num-${listId}"><h3>${resultData[i].name}</h3> 
       ${resultData[i].categories.length ? `<p><strong>${resultData[i].categories[0].name}</strong></p>` : ''}
-      <p>Location: ${addressObject ? `${addressObject}` : 'no'}</p>
+      <p>Location: ${addressObject ? `${addressObject}` : 'Not Found'}</p>
       <button type="button" class="show-map" id="button-${listId}"><span>Find More</span></button><br>
-      </li>`
-      )
+      </div>`
+      );
     
     // append the result image into the result list
-    getImage(resultData[i].id, listId)
-  };
+    getImage(resultData[i].id, listId);
+  }
     
   // //display the results section  
   $('#results').removeClass('hidden');
-};
+}
 
 
 function getImage(venueId, listId){
@@ -133,7 +134,7 @@ function getImage(venueId, listId){
 // fetch the image from Google Static Street View
 function imageRequest(photoResponse, listId){
   
-  let photoItem = photoResponse.items[0]
+  const photoItem = photoResponse.items[0];
   // if Foursqure has the image
   if (photoItem){
     // const imageSrc = photoItem.prefix + `${photoItem.width}x${photoItem.height}` + photoItem.suffix;
@@ -171,9 +172,9 @@ function streetViewClick(){
   $('ul').on('click','.show-map',function(event){
     
     event.preventDefault();
-    let listId = this.id.split('-')[1];
-    let lat = STORE[listId].lat;
-    let lng = STORE[listId].lng;
+    const listId = this.id.split('-')[1];
+    const lat = STORE[listId].lat;
+    const lng = STORE[listId].lng;
     $('#myModal').removeClass('hidden')
     if (!($('#myModal')[0].classList.contains('hidden'))){
       initialize(lat,lng)
@@ -210,17 +211,16 @@ function getVenue(){
       categoryId[i] = $(this).val();
     });
     // get other params
-   let city = $('#city').val(), state = $('#state').val(), 
-   radius = $('#radius').val() ,query = $('#name').val(),
-   limit = $('#limit').val();
-  //  transform the mile to meter (Foursqure request the meter as distance unit)
-   radius = radius * 1609.344;
-  //  hide error message
-   $('.error-message').hide();
-   // hide street view
-   $('#myModal').addClass('hidden');
-   getFour(city, state, radius, query, categoryId, limit);
-  })
+    const city = $('#city').val(), state = $('#state').val(), query = $('#name').val(),
+    //  transform the mile to meter (Foursqure request the meter as distance unit)
+    radius = $('#radius').val() * 1609.344, limit = $('#limit').val();
+
+    //  hide error message
+    $('.error-message').hide();
+    // hide street view
+    $('#myModal').addClass('hidden');
+    getFour(city, state, radius, query, categoryId, limit);
+    })
 }
 
 // category checkbox real-time inspection
@@ -279,12 +279,15 @@ function clearTextClick(){
   $('.clear-span').on('click',function(event){
     $(this).closest('div').find('input').val('');
     $(this).css('visibility',"hidden");
-    nameBox= false;
-    if (nameBox || checkBox){
-      $('.radius-group').show();
-    }
-    else{
-      $('.radius-group').hide();
+    // execute only when search name input is clear
+    if (this.id === 'name-clear'){
+      nameBox= false;
+      if (nameBox || checkBox){
+        $('.radius-group').show();
+      }
+      else{
+        $('.radius-group').hide();
+      }
     }
   })
 }
@@ -333,7 +336,7 @@ function mainFunc(){
   streetViewClick();
   clearTextClick();
   inputCheck();
-  closeImage()
+  closeImage();
 }
 
 $(mainFunc);

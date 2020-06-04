@@ -23,38 +23,38 @@
                         <!-- city and state required-->
                         <div class="city-group group">
                             <div class="city-item item">
-                                <p>City</p>
+                                <label for="city">City</label>
                                 <div class="group input-with-clear">
-                                    <input type="text" id="city" placeholder="Austin" required>
+                                    
+                                    <input type="text" id="city" name="city" placeholder="Austin" required>
                                     
                                     <span class="clear-span cursor">&times;</span>
                                 </div>
                             </div>
                             <div class="state-item item">
-                                <p>State / Province / Region</p>
+                                <label for="state">State / Province / Region</label>
                                 <div class="group input-with-clear">
-                                    <input type="text" id="state" placeholder="TX" required>
+                                    <input type="text" id="state" name="state" placeholder="TX" required>
                                     <span class="clear-span cursor">&times;</span>
                                 </div>
                             </div>
                         </div>
                         <!-- search name -->
                         <div class='name-group'>
-                            <p>Search name</p>
-                            
+                            <label for="name">Search name</label>
                             <div class="group input-with-clear">
                                 <input type="text" id="name" placeholder="eg. Steak, Airport, Hotel">
-                                <span class="clear-span cursor">&times;</span>
+                                <span class="clear-span cursor" id="name-clear">&times;</span>
                             </div>
                         </div>
                         <!-- category -->
                         <div class='search-category-group'>
-                            <p>Search category</p>
+                            <p>Search Category</p>
                             <div class="group category-group">
                                 <div class="item category-item item-margin-right">
                                     <input type="checkbox" id="shop-service" name="shop-service" value="4d4b7105d754a06378d81259">
                                     <label for="shop-service">Shop & Service</label><br>
-                                    
+    
                                     <input type="checkbox" id="residence" name="residence" value="4e67e38e036454776db1fb3a">
                                     <label for="residence">Residence</label><br>
 
@@ -65,6 +65,7 @@
                                 <div class="item category-item">
                                     <input type="checkbox" id="art-entertainment" name="art-entertainment" value="4d4b7104d754a06370d81259">
                                     <label for="art-entertainment">Arts & Entertainment</label><br>
+
                                     <input type="checkbox" id="travel-transport" name="travel-transport" value="4d4b7105d754a06379d81259">
                                     <label for="travel-transport">Travel & Transport</label><br>
                                 </div>
@@ -73,19 +74,19 @@
                         <!-- radius, only shows when search name is input or at least one category is selected -->
                         </div>
                         <div class='radius-group hidden'>
-                            <p>Search radius (mile)</p>
+                            <label for="radius">Search radius (mile)</label>
                             <!-- <input type="number" id="radius" placeholder="eg. 250"> -->
                             <div class="group input-with-clear">
-                                <input type="number" id="radius" placeholder="eg. 250">
+                                <input type="number" id="radius" name="radius" placeholder="eg. 250">
                                 <span class="clear-span cursor">&times;</span>
                             </div>
                         </div>
                         <!-- maximum results  default 10-->
                         <div class='limit-group'>
-                            <p>Maximum results</p>
+                            <label for="limit">Maximum results</label>
                             
                             <div class="group input-with-clear">
-                                <input type="number" id="limit" value="10" placeholder="eg. 10">
+                                <input type="number" id="limit" name="limit" value="10" placeholder="eg. 10">
                                 <span class="clear-span cursor">&times;</span>
                             </div>
                         </div>

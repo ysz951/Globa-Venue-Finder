@@ -83,10 +83,7 @@ button:hover {
   margin:10px 0;
 }
 
-.main-group p{
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
+
 
 .search-item{
   width: 100%;
@@ -94,23 +91,45 @@ button:hover {
 
 .input-with-clear{
   border:1px solid rgba(128, 128, 128, 0.733);
+  margin-top:7px;
 }
 
 .input-with-clear input{
   border: none;
 
 }
+
 .city-group input{
   background-color: rgb(235, 235, 235);
   padding-left:5px;
   width: 100%;
   outline:none;
+  
+}
+
+.city-group {
+  margin-top: 7px;
+}
+
+.radius-group{
+  margin-top: 7px;
 }
 
 .radius-group input{
   width: 100%;
+  
   outline:none;
   background-color: rgb(235, 235, 235);
+}
+
+
+.search-category-group p{
+  margin-top:7px;
+  margin-bottom: 7px;
+}
+
+.limit-group{
+  margin-top: 7px;
 }
 
 .limit-group input{
@@ -119,6 +138,9 @@ button:hover {
   background-color: rgb(235, 235, 235);
 }
 
+.name-group {
+  margin-top: 7px;
+}
 
 .name-group input{
   width: 100%;
@@ -132,7 +154,7 @@ button:hover {
 #js-error-message{
   text-align: center;
   font-family: 'Poiret One', cursive;
-  background-color: red;
+  background-color: rgb(165, 23, 23);
   margin:0 0 10px;
   padding: 5px 0;
   
@@ -150,15 +172,27 @@ button:hover {
   margin-left:5px;
 }
 
+.result-list-group div{
+  margin: 5px;
+  padding: 5px;
+  border:1px solid rgba(128, 128, 128, 0.733);
+}
+
 .results-container h2{
   padding-top: 15px;
   margin-top:0;
   margin-bottom:0;
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
+   font-family: 'Poiret One', cursive;
+  
+  
 }
 
 .results-container h3{
-  color: rgb(223, 58, 16);
+  color: rgb(59, 53, 53);
+  /* font-family: 'Poiret One', cursive; */
+  
+  text-shadow: 0 0 1px black;
 }
 
 .results-container p{
@@ -173,9 +207,9 @@ ul {
 }
 
 li {
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.555);
+  /* margin: 5px;
+  padding: 5px; */
+  /* border: 1px solid rgba(128, 128, 128, 0.555); */
 }
 
 
@@ -292,7 +326,7 @@ li {
   z-index: 99; 
   border: none; 
   outline: none; 
-  background-color: #f4511e;
+  background-color: rgb(192, 47, 47);
   color: white;
   cursor: pointer; 
   padding: 5px; 
@@ -301,7 +335,7 @@ li {
 }
 
 #myBtn:hover {
-  background-color: rgb(170, 67, 67); 
+  background-color: rgb(143, 51, 51); 
 }
 
 /* ------450 to 800px setting-------- */
@@ -372,10 +406,10 @@ li {
     width: 50%;
   }
 
-  li{
+  .result-list-group div{
     width: 48%;
   }
-
+  
   .modal {
     top: 15%;
     padding:60px 0 0;
