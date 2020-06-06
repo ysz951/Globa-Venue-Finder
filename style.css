@@ -3,6 +3,8 @@
   box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: rgb(82, 87, 87);
@@ -17,6 +19,7 @@ main{
 }
 
 
+
 h1{
   text-align: center;
   font-family: 'Orbitron', sans-serif;
@@ -25,6 +28,10 @@ h1{
   color:black;
   text-shadow:0 0 1px rgb(28, 89, 170);
   padding:21px 0;
+}
+
+.start{
+  height: 100vh;
 }
 
 strong{
@@ -80,7 +87,9 @@ button:hover {
 
 .main-group{
   padding:5px 10px;
-  margin:10px 0;
+  margin:10px 0 20px;
+  height: 90vh;
+
 }
 
 
@@ -163,6 +172,7 @@ button:hover {
 /* results section */
 
 .results-container{
+  margin-top: 20px;
   width: 100%;
   background-color: rgb(206, 212, 205);
   border-radius: 10px;

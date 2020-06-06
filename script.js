@@ -102,6 +102,8 @@ function displayResults(responseJson) {
     
   // //display the results section  
   $('#results').removeClass('hidden');
+  
+  window.scrollTo(0,$('#results').position().top);
 }
 
 
@@ -311,8 +313,8 @@ function showTop(){
 }
 
 function scrollFunction() {
-  
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  // window.scrollTo(0,);
+  if (document.body.scrollTop >= $('#results').position().top || document.documentElement.scrollTop >= $('#results').position().top) {
     $("#myBtn").show();
   } else {
     $("#myBtn").hide();
@@ -321,8 +323,9 @@ function scrollFunction() {
 
 function goTop(){
   $('.top-button').on('click','#myBtn',function(){
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    
+    document.body.scrollTop = '100%'; // For Safari
+    document.documentElement.scrollTop = '100%'; // For Chrome, Firefox, IE and Opera
   }
   )
 }
