@@ -39,14 +39,11 @@ function getFour(city, state, radius, query, categoryId, limit) {
     v: v,
     categoryId: categoryId
   };
- 
   const queryString = formatQueryParams(params);
   // build the complete url
   const url = foursquareVenueURL + '?' + queryString;
- 
   // clear error message
   $('#js-error-message').text('');
-
   fetch(url)
     .then(response => {
       if (response.ok) {
