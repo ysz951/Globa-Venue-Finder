@@ -99,7 +99,10 @@ function displayResults(responseJson) {
     
   // //display the results section  
   $('#results').removeClass('hidden');
-  window.scrollTo(0, $('#results').position().top);
+  $('html, body').animate({
+      scrollTop: $("#results").offset().top
+  }, 200);
+  // window.scrollTo(0, $('#results').position().top);
 }
 
 
