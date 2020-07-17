@@ -77,8 +77,8 @@
                             <label for="radius">Search radius (mile)</label>
                             <!-- <input type="number" id="radius" placeholder="eg. 250"> -->
                             <div class="group input-with-clear">
-                                <input type="number" id="radius" name="radius" placeholder="eg. 250">
-                                <span class="clear-span cursor">&times;</span>
+                                <input type="number" id="radius" name="radius" min="1"  placeholder="eg. 250">
+                                <!-- <span class="clear-span cursor">&times;</span> -->
                             </div>
                         </div>
                         <!-- maximum results  default 10-->
@@ -86,11 +86,11 @@
                             <label for="limit">Maximum results</label>
                             
                             <div class="group input-with-clear">
-                                <input type="number" id="limit" name="limit" value="10" placeholder="eg. 10">
-                                <span class="clear-span cursor">&times;</span>
+                                <input type="number" id="limit" name="limit" min="1" value="10" placeholder="eg. 10">
+                                <!-- <span class="clear-span cursor">&times;</span> -->
                             </div>
                         </div>
-                        <br>
+                        
                     </div>
                     <!-- find icon section -->
                     <div class="find-item item">
