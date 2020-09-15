@@ -7,7 +7,7 @@ An online venue search application. Users can search for the venue they are inte
 * List the venue with name, location and street view.
 
 ## Demo
-* [Live Demo](https://ysz951.github.io/Global-Venue-Finder/)
+* [Live Demo](https://lookforvenues.co/)
 
 ## Screenshoots
 ### Search Section:
